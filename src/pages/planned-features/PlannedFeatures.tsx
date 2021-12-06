@@ -19,6 +19,8 @@ const plannedFeatures: IFeature[] = [
     { title: "Studying Flashcards", description: "Enter into study-mode to view each flash card in the set. Shuffle the deck to view the cards out of order each time. Decide whether to view the answer-side first or the question-side first.", },
     { title: "Edit Flashcard List", description: "Reorder the flashcards to any order you want.", },
     { title: "Update Account Info", description: "Update your info; give yourself a different display name or change your email/password.", },
+    { title: "Adding Friends", description: "Add friends to a friend list to study with. View all public study sets created by friends.", },
+    { title: "Study With Friends", description: "Create study groups and add study sets that are only visible to that study group.", },
 ];
 
 interface PlannedFeaturesProps {

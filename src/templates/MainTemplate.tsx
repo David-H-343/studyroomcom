@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Layout, Typography, Menu, Row, Col, Affix } from 'antd';
 import PageNavigation from './PageNavigation';
 import {
@@ -29,16 +29,22 @@ const linkList: string[] = [
 ];
 
 const MainTemplate: FC = (props: MainTemplateProps) => {
+    const pageId: string = sessionStorage.getItem("pageId") ?? '1';
+
+    const updateMenu = (key: string) => {
+        sessionStorage.setItem("pageId", key);
+    }
+
     return (
         <Layout className="sr-layout">
             <Router>
                 <Affix>
                     <Header>
                         <Title className="logo" level={4} >Study Room</Title>
-                        <Menu mode="horizontal">
+                        <Menu mode="horizontal" defaultSelectedKeys={[pageId]} >
                             {navlist.map((_, index) => {
                                 const key = index + 1;
-                                return <Menu.Item key={key}><Link to={linkList[index]}>{navlist[index]}</Link></Menu.Item>;
+                                return <Menu.Item key={key} onClick={() => updateMenu(key.toString())} ><Link to={linkList[index]}>{navlist[index]}</Link></Menu.Item>;
                             })}
                         </Menu>
                     </Header>
